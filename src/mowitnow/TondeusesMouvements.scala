@@ -100,7 +100,6 @@ object TondeusesMouvements  extends App {
 
   // Gestion des exceptions
 }
-
 catch {
   case e: IOException => println (" IOException a lieu en essayant de lire ce fichier")
   case e: FileNotFoundException => println ("Le fichier spécifié est introuvable :( ")
