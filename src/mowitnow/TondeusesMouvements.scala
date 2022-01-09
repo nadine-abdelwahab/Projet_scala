@@ -74,7 +74,7 @@ object TondeusesMouvements  extends App {
             case invalid => orient = "error"
           }
         }
-        /*Si la tondeuse fait un A alors  elle avance  d'une case dans la direction à laquelle elle fait face sans modifier son orientation.
+        /*Si la tondeuse fait un A( Avancer), alors  elle avance d'une case dans la direction à laquelle elle fait face sans modifier son orientation.
         Ainsi, les coordonnées (soit x ou y ) vont changer.
          */
         else if (pas == "A") {
