@@ -30,7 +30,7 @@ object TondeusesMouvements  extends App {
     var tondeuse1 = déplacementListe.take(2)
 
     /* Extraction des  instructions d'exploration de la pelouse fournie à la tondeuse 2
-    grâce à la fonction takeRight (navigation de la liste de droite à gauche) */
+    grâce à la fonction takeRight (navigation dans la liste de droite à gauche) */
     var tondeuse2 = déplacementListe.takeRight(2)
 
 
