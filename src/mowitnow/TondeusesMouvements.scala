@@ -14,7 +14,7 @@ object TondeusesMouvements  extends App {
     // Dans cette étape, On indique les dimensions du terrain où  les tondeuses vont se déplacer. Ces derniers sont présentés par des coordonnées  (x , y).
     // Il convient donc de déterminer les valeurs maximales et valeurs minimales que peuvent prendre x et y.
     // Les valeurs maximales de x et y sont déterminées à partir du fichier instructions et correspondent à 5 et 5 respectivement.
-    // Par défaut, les valeurs minimales sont fixées à 0.
+    // Par défaut, les valeurs minimales sont fixées à 0,0.
 
     val xmax: Int = instructions(0).split(" ")(0).toInt
     val ymax: Int = instructions(0).split(" ")(1).toInt
