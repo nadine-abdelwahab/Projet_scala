@@ -22,7 +22,7 @@ object TondeusesMouvements  extends App {
     val ymin: Int = 0
 
 
-    // Dans notre fichier instructions, On élémine les dimensions de la pelouse car on n'aura pas besoin.
+    // Dans notre fichier instructions, On élémine les dimensions de la pelouse car on n'en aura pas besoin.
     var déplacementListe = instructions.splitAt(1)._2
 
 
