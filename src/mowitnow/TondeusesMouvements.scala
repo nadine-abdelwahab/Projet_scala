@@ -21,10 +21,8 @@ object TondeusesMouvements  extends App {
     val xmin: Int = 0
     val ymin: Int = 0
 
-
     // Dans notre fichier instructions, On élémine les dimensions de la pelouse car on n'en aura pas besoin.
     var déplacementListe = instructions.splitAt(1)._2
-
 
     // Extraction des  instructions d'exploration de la pelouse fournie à la tondeuse 1 grâce à la fonction take.
     var tondeuse1 = déplacementListe.take(2)
@@ -32,7 +30,6 @@ object TondeusesMouvements  extends App {
     /* Extraction des  instructions d'exploration de la pelouse fournie à la tondeuse 2
     grâce à la fonction takeRight (navigation dans la liste de droite à gauche) */
     var tondeuse2 = déplacementListe.takeRight(2)
-
 
     /* On crée une fonction qui permet le déplacement des tondeuses sur la pelouse
     en respectant  les instructions définis pour tondeuse 1 et tondeuse 2.*/
@@ -49,7 +46,7 @@ object TondeusesMouvements  extends App {
       var x: Int = coordonnéeInitiale(0)
       var y: Int = coordonnéeInitiale(1)
       var orient: String = orientationInitiale
-
+      
       /* Le mouvement de la tondeuse est determinee par trois lettres: A, G, D.
       Ainsi, on crée une boucle pour chacune de ces mouvements pour savoir comment l'orientation de la tondeuse va changer.
        */
@@ -74,7 +71,7 @@ object TondeusesMouvements  extends App {
             case invalid => orient = "error"
           }
         }
-        /*Si la tondeuse fait un "A" (Avancer), alors  elle avance d'une case dans la direction à laquelle elle fait face sans modifier son orientation.
+         /*Si la tondeuse fait un "A" (Avancer), alors  elle avance d'une case dans la direction à laquelle elle fait face sans modifier son orientation.
         Ainsi, les coordonnées (soit x ou y ) vont changer.
          */
         else if (pas == "A") {
