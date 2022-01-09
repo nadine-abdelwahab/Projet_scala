@@ -3,7 +3,7 @@ package mowitnow
 import java.io.{FileNotFoundException, IOException}
 import scala.io.Source.fromResource
 
-object tondeuses_mouvements  extends App {
+object TondeusesMouvements  extends App {
   // Gestion des exceptions
   try {
     /* Importer le fichier des instructions livrées à la tondeuse sous forme d'une liste
@@ -23,15 +23,15 @@ object tondeuses_mouvements  extends App {
 
 
     // Dans notre fichier instructions, On élémine les dimensions de la pelouse car on n'aura pas besoin.
-    var déplacement_liste = instructions.splitAt(1)._2
+    var déplacementListe = instructions.splitAt(1)._2
 
 
     // Extraction des  instructions d'exploration de la pelouse fournie à la tondeuse 1 grâce à la fonction take.
-    var tondeuse1 = déplacement_liste.take(2)
+    var tondeuse1 = déplacementListe.take(2)
 
     /* Extraction des  instructions d'exploration de la pelouse fournie à la tondeuse 1
     grâce à la fonction takeRight (navigation de la liste de droite à gauche) */
-    var tondeuse2 = déplacement_liste.takeRight(2)
+    var tondeuse2 = déplacementListe.takeRight(2)
 
 
     /* On crée une fonction qui permet le déplacement des tondeuses sur la pelouse
@@ -39,23 +39,23 @@ object tondeuses_mouvements  extends App {
 
     def Tonter(nom: String, tondeuse: List[String]) = {
       // extraire l'orientation initiale qu'elle soit N,E,O,S.
-      val orientation_initiale: String = tondeuse(0).split(" ")(2).toString
+      val orientationInitiale: String = tondeuse(0).split(" ")(2).toString
       //extraire les coordonnées initiaux x et y sous forme d'une liste
-      val coordonnée_initiale = List(tondeuse(0).split(" ")(0).toInt, tondeuse(0).split(" ")(1).toInt)
+      val coordonnéeInitiale = List(tondeuse(0).split(" ")(0).toInt, tondeuse(0).split(" ")(1).toInt)
       //extraire le déplacement des tondeuses sur la pelouse (séquence des lettres A,G,D)
       val chemin = tondeuse(1).toList.map(_.toString)
 
       // On indique la taille de la matrice sur laquelle les tondeuses vont faire évoluer leur déplacement.
-      var x: Int = coordonnée_initiale(0)
-      var y: Int = coordonnée_initiale(1)
-      var orient: String = orientation_initiale
+      var x: Int = coordonnéeInitiale(0)
+      var y: Int = coordonnéeInitiale(1)
+      var orient: String = orientationInitiale
 
       /* Le mouvement de la tondeuse est determinee par trois lettres: A, G, D.
       Ainsi, on crée une boucle pour chacune de ces mouvements pour savoir comment l'orientation de la tondeuse va changer.
        */
-      for (step <- chemin) {
+      for (pas <- chemin) {
         // Si la tondeuse pivote de 90° à gauche alors les orientations changent ainsi:
-        if (step == "G") {
+        if (pas == "G") {
           orient match {
             case "N" => orient = "O"
             case "E" => orient = "N"
@@ -65,7 +65,7 @@ object tondeuses_mouvements  extends App {
           }
         }
         // Si la tondeuse pivote de 90° à droite alors les orientations changent ainsi:
-        else if (step == "D") {
+        else if (pas == "D") {
           orient match {
             case "N" => orient = "E"
             case "E" => orient = "S"
@@ -77,7 +77,7 @@ object tondeuses_mouvements  extends App {
         /*Si la tondeuse fait un A alors  elle avance  d'une case dans la direction à laquelle elle fait face sans modifier son orientation.
         Ainsi, les coordonnées (soit x ou y ) vont changer.
          */
-        else if (step == "A") {
+        else if (pas == "A") {
           // Avancement vers le nord, x demeure constante et y change (on ajoute 1 car on monte dans le plan)
           if (orient == "N" & y < ymax) y = y + 1
           // Avancement vers l'ouest, y demeure constante et x change (on soustrait 1 car on se déplace à gauche dans le plan)
