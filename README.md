@@ -1,6 +1,9 @@
 # Projet scala
 M2 MoSEF (2021-2022)
-Projet réalisé par Nadine Abdelwahab et Pedro Posse,Rendu le 9 janvier 2022.
+Projet réalisé par Nadine Abdelwahab et Pedro Posse.
+Rendu le 9 janvier 2022.
+
+Sujet :
 
 La société MowItNow a décidé de développer une tondeuse à gazon automatique, destinée aux surfaces rectangulaires.
 
